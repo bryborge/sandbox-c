@@ -1,0 +1,12 @@
+services:
+  sandbox-c:
+    build:
+      context: .
+      dockerfile: container/Containerfile
+    container_name: sandbox-c
+    image: sandbox-c:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/workspace
+    working_dir: /workspace

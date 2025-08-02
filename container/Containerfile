@@ -1,0 +1,26 @@
+FROM debian:bookworm
+
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        build-essential \
+        git \
+        gdb \
+        valgrind \
+        clang \
+        clang-format \
+        clang-tidy \
+        clangd \
+        libcunit1 \
+        libcunit1-doc \
+        libcunit1-dev \
+        meson \
+        ninja-build \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN useradd -ms /bin/bash bry-dev
+
+ENV CC=/usr/bin/clang
+
+WORKDIR /workspace
+USER bry-dev
