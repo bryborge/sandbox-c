@@ -1,0 +1,16 @@
+# Build artifacts
+build/
+*.o
+*.a
+
+# Container files
+container/
+compose.yaml
+.containerignore
+
+# Version control
+.git/
+
+# Documentation
+README.md
+LICENSE
