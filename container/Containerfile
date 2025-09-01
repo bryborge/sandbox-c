@@ -5,18 +5,35 @@ RUN apt-get update \
         build-essential \
         git \
         gdb \
-        valgrind \
         clang \
         clang-format \
         clang-tidy \
         clangd \
+        less \
+        libc6-dbg \
         libcunit1 \
         libcunit1-doc \
         libcunit1-dev \
         meson \
         ninja-build \
+        wget \
+        ca-certificates \
+        bzip2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Valgrind from source (apt version is older)
+ARG VALGRIND_VERSION=3.25.1
+RUN set -eux; \
+    wget -O /tmp/valgrind.tar.bz2 "https://sourceware.org/pub/valgrind/valgrind-${VALGRIND_VERSION}.tar.bz2"; \
+    cd /tmp; \
+    tar -xjf valgrind.tar.bz2; \
+    cd "valgrind-${VALGRIND_VERSION}"; \
+    ./configure --prefix=/usr/local; \
+    make -j"$(nproc)"; \
+    make install; \
+    cd /; rm -rf /tmp/valgrind*; \
+    valgrind --version
 
 RUN useradd -ms /bin/bash bry-dev
 

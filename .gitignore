@@ -53,3 +53,13 @@ dkms.conf
 
 # debug information files
 *.dwo
+callgrind.*
+massif.*
+
+# Ignore common tooling artifacts
+vgcore.*
+gmon.out
+perf.data*
+
+# Artifact directory
+build/
