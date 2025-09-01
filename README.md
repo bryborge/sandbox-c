@@ -13,13 +13,13 @@ These instructions assume you have the above dependencies installed, configured,
 1.  Spin up the container.
 
     ```sh
-    make up
+    podman compose up -d
     ```
 
 2.  Optional: Enter the container.
 
     ```sh
-    make shell
+    podman compose exec sandbox-c bash
     ```
 
 ### ⚙️ Build System
@@ -101,6 +101,8 @@ This project uses [Valgrind](https://valgrind.org/) for debugging and profiling.
 
 ## 📚 Resources
 
--   ["Official" C Documentation (ISO Standard)](https://www.iso.org/standard/82075.html)
--   [Microsoft's C Documentation](https://learn.microsoft.com/en-us/cpp/c-language/?view=msvc-170)
 -   [GNU Make Documentation](https://www.gnu.org/software/make/)
+-   [Meson Documentation](https://mesonbuild.com/SimpleStart.html)
+-   [Microsoft's C Documentation](https://learn.microsoft.com/en-us/cpp/c-language/?view=msvc-170)
+-   ["Official" C Documentation (ISO Standard)](https://www.iso.org/standard/82075.html)
+-   [Valgrind Documentation](https://valgrind.org/docs/)
